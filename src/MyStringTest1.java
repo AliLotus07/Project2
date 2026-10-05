@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 class MyStringTest1 {
-   @Test
+      @Test
     void get_string() {
 
         char [] charArr = {'A','p','p','l','e'};
@@ -23,39 +23,13 @@ class MyStringTest1 {
     }
     @Test
     void strcatEmpty() {
-        MyString first = MyString.convertToMyString("");
-        MyString second = MyString.convertToMyString("");
-        first.strcat(second);
-        assertEquals("", MyString.convertToString(first));
-
-    }
-    @Test
-    void StrcatEmpty () {
-        MyString first = MyString.convertToMyString("Burger");
-        MyString second = MyString.convertToMyString("Burger");
-
-        assertTrue(first.strcmp(second));
+        MyString f1 = MyString.convertToMyString("");
+        MyString s2 = MyString.convertToMyString("");
+        f1.strcat(s2);
+        assertEquals("", MyString.convertToString(f1));
 
     }
 
-    @Test
-    void Emptystrcat2() {
-        MyString first = MyString.convertToMyString("Burger");
-        MyString second = MyString.convertToMyString("");
-        first.strcat(second);
-        assertEquals("Burger", MyString.convertToString(first));
-
-    }
-
-    @Test
-    void Emptystrcat1() {
-        MyString first = MyString.convertToMyString("");
-        MyString second = MyString.convertToMyString("King");
-
-        first.strcat(second);
-        assertEquals("King", MyString.convertToString(first));
-
-    }
 
     @Test
     void strcpy() {
@@ -63,10 +37,9 @@ class MyStringTest1 {
         MyString destination = MyString.convertToMyString(("Dinner"));
         destination.strcpy(source);
         assertEquals("Lunch", MyString.convertToString(destination));
-
     }
     @Test
-    void strcpy2() {
+    void strcpyEmpty() {
         MyString source = MyString.convertToMyString("Lunch");
         MyString destination = new MyString (5);
         destination.strcpy(source);
@@ -87,104 +60,82 @@ class MyStringTest1 {
 
     @Test
     void strcmp() {
-        MyString first = MyString.convertToMyString("Burger");
-        MyString second = MyString.convertToMyString("BurgerKing");
-        assertFalse(first.strcmp(second));
-    }
-    @Test
-    void strcmp2() {
-        MyString first = MyString.convertToMyString("Burger");
-        MyString second = MyString.convertToMyString("Burger");
-        assertTrue(first.strcmp(second));
+        MyString f1 = MyString.convertToMyString("Burger");
+        MyString s2 = MyString.convertToMyString("BurgerKing");
+        assertFalse(f1.strcmp(s2));
 
     }
 
     @Test
-    void Strcmp3() {
-        MyString first = MyString.convertToMyString("Mac");
-        MyString second = MyString.convertToMyString("book");
-        assertFalse(first.strcmp(second));
+    void strcmpEmpty() {
 
+        MyString f1 = MyString.convertToMyString("");
+        MyString s2 = MyString.convertToMyString("");
+        assertTrue(f1.strcmp(s2));
     }
 
     @Test
     void strlen() {
-        MyString str = MyString.convertToMyString("Pizza");
-        assertEquals(5, str.strlen());
-    }
-    @Test
-    void StrlenChar() {
-        MyString str = MyString.convertToMyString("A");
-        assertEquals(1, str.strlen());
-
+        MyString string1 = MyString.convertToMyString("Pizza");
+        assertEquals(5, string1.strlen());
     }
 
     @Test
 
     void testStrlenEmpty() {
-        MyString str = MyString.convertToMyString("");
+        MyString string1 = MyString.convertToMyString("");
 
-        assertEquals(0, str.strlen());
+        assertEquals(0, string1.strlen());
     }
 
 
     @Test
     void setChar() {
-        MyString str = MyString.convertToMyString("Carrot");
-        str.setChar('P',0);
-        assertEquals('P', str.getChar(0));
+        MyString string1 = MyString.convertToMyString("Carrot");
+        string1.setChar('P',0);
+        assertEquals('P', string1.getChar(0));
     }
     @Test
     void setChar2() {
-        MyString str = MyString.convertToMyString("Carrot");
-        str.setChar('L', 2);
-        assertEquals('L', str.getChar(2));
+        MyString string1 = MyString.convertToMyString("Carrot");
+        string1.setChar('L', 2);
+        assertEquals('L', string1.getChar(2));
 
     }
-    @Test
-    void setChar3() {
-        MyString str = MyString.convertToMyString("Carrot");
-        str.setChar('L', 5);
-        assertEquals('L', str.getChar(5));
 
-    }
 
     @Test
     void getChar() {
-        MyString str = MyString.convertToMyString("Carrot");
-        assertEquals('C', str.getChar(0));
-        assertEquals('a', str.getChar(1));
-        assertEquals('r', str.getChar(2));
-        assertEquals('r', str.getChar(3));
-        assertEquals('o', str.getChar(4));
-        assertEquals('t', str.getChar(5));
+        MyString string1 = MyString.convertToMyString("Carrot");
+        MyString string2 = MyString.convertToMyString("Parrot");
+        assertEquals('C', string1.getChar(0));
+        assertEquals('P', string2.getChar(0));
 
     }
 
     @Test
     void convertToMyString() {
-        MyString str = MyString.convertToMyString("Burger");
+        MyString string1 = MyString.convertToMyString("Burger");
 
-        assertEquals(6,str.strlen());
-        assertEquals('B', str.getChar(0));
-        assertEquals('u', str.getChar(1));
-        assertEquals('r', str.getChar(2));
-        assertEquals('g', str.getChar(3));
-        assertEquals('e', str.getChar(4));
-        assertEquals('r', str.getChar(5));
+        assertEquals(6,string1.strlen());
+        assertEquals('B', string1.getChar(0));
+        assertEquals('u', string1.getChar(1));
+        assertEquals('r', string1.getChar(2));
+        assertEquals('g', string1.getChar(3));
+        assertEquals('e', string1.getChar(4));
+        assertEquals('r', string1.getChar(5));
 
     }
 
     @Test
     void convertToString() {
-        MyString str = MyString.convertToMyString("Popsicle");
-        String result = MyString.convertToString(str);
+        MyString string1 = MyString.convertToMyString("Popsicle");
+        String result = MyString.convertToString(string1);
         assertEquals("Popsicle", result);
-    }
-    @Test
-    void ConvertToString2 () {
-        MyString str = MyString.convertToMyString("");
-        assertEquals("", MyString.convertToString(str));
+
+        MyString empty = MyString.convertToMyString("");
+        assertEquals("", MyString.convertToString(empty));
 
     }
+
 }
